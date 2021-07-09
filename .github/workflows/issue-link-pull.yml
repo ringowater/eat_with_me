@@ -1,0 +1,13 @@
+name: Issue Links
+on:
+  pull_request:
+    types: [opened]
+jobs:
+  connect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: When pull_request opened, move the connected issue to the column
+        uses: wktk/github-project-connect-action@v1
+        with:
+          github-token: ${{ secrets.EAT_WITH_ME_TOKEN }}
+          column-url: https://github.com/ringowater/eat_with_me/projects/1#column-15031439
