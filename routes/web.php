@@ -14,3 +14,26 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('posts', 'PostController');
+
+Route::resource('comments', 'CommentController');
+
+Route::resource('users', 'UserController');
+
+Route::resource('event_requests', 'Event_requestController');
+
+
+Route::prefix('notification')->middleware('auth')->group(function(){
+
+Route::get('/', [NotificationController::class, 'index'])->name('notification.index');
+    
+Route::get('/list', [NotificationController::class, 'list'])->name('notification.list');
+    
+Route::get('/{notification}', [NotificationController::class, 'show'])->name('notification.show');
+
+});
