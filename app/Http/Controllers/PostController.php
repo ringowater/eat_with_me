@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Post;
 use Auth;
+use App\User;
 
 class PostController extends Controller
 {
@@ -20,6 +21,7 @@ class PostController extends Controller
     }
     public function index()
     {
+        
         $posts = Post::all();
         $posts->load('user');
         return view('posts.index', compact('posts'));

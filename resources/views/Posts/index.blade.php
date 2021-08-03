@@ -37,7 +37,7 @@
                         <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">詳細へ</a> 
                     </div>
                     <div class="card-footer text-muted">
-                    <p class="card-text"><a href="{{ route('users.index') }}">投稿者：{{ $post->user->name }}</a></p>  
+                    <p class="card-text"><a href="{{ route('users.show', $post->user_id) }}">投稿者：{{ $post->user->name }}</a></p>  
                     </div>
                     </div>
                     @endforeach
