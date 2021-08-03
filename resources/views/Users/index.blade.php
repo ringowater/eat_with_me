@@ -11,7 +11,7 @@
     <div class="col-md-3 pt-0">
       <div class="list-group list-group-flush account-settings-links">
         <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account-general">プロフィール</a>
-        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-change-password">パスワード変更</a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-change-password">パスワード変更　</a>
         <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-info">あなたの投稿</a>
         <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-social-links">参加申請中の投稿</a>
         <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-connections">マッチングした投稿</a>
