@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Post;
 use Auth;
+use App\User;
 
 class PostController extends Controller
 {
@@ -20,6 +21,7 @@ class PostController extends Controller
     }
     public function index()
     {
+        
         $posts = Post::all();
         $posts->load('user');
         return view('posts.index', compact('posts'));
@@ -55,7 +57,7 @@ class PostController extends Controller
         $post -> user_id  = Auth::id(); 
 
         $post -> save(); 
-        return redirect()->route('home');
+        return redirect()->route('posts.index');
     }
 
     /**

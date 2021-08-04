@@ -36,9 +36,17 @@
                         <p class="card-text">募集対象・人数：{{ $post->participants_age_group }}   {{ $post->participants_number }}人</p>
                         <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">詳細へ</a> 
                     </div>
-                    <div class="card-footer text-muted">
-                    <p class="card-text"><a href="{{ route('users.index') }}">投稿者：{{ $post->user->name }}</a></p>  
+                      
+                    <div class="card-footer text-muted">            
+                     @if($post->user_id == Auth::id())
+                     <p class="card-text"> 
+                     <a href="{{ route('users.edit', $post->user_id) }}">投稿者：{{ $post->user->name }}</a></p>
+                     @else  
+                     <p class="card-text"> 
+                     <a href="{{ route('users.show', $post->user_id) }}">投稿者：{{ $post->user->name }}</a></p> 
+                     @endif
                     </div>
+                    
                     </div>
                     @endforeach
                     </div>

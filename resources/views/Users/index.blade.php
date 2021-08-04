@@ -4,20 +4,18 @@
 <div class="container">
 <div class="container light-style flex-grow-1 container-p-y">
 
-<h4 class="font-weight-bold py-3 mb-4">
-  Account settings
-</h4>
+
 
 <div class="card overflow-hidden">
   <div class="row no-gutters row-bordered row-border-light">
     <div class="col-md-3 pt-0">
       <div class="list-group list-group-flush account-settings-links">
-        <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account-general">General</a>
-        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-change-password">Change password</a>
-        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-info">Info</a>
-        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-social-links">Social links</a>
-        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-connections">Connections</a>
-        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-notifications">Notifications</a>
+        <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account-general">プロフィール</a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-change-password">パスワード変更</a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-info">あなたの投稿</a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-social-links">参加申請中の投稿</a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-connections">マッチングした投稿</a>
+        
       </div>
     </div>
     <div class="col-md-9">
@@ -40,24 +38,33 @@
 
           <div class="card-body">
             <div class="form-group">
-              <label class="form-label">Username</label>
-              <input type="text" class="form-control mb-1" value="nmaxwell">
+              <label class="form-label">ニックネーム</label>
+              <input type="text" class="form-control mb-1" value="Rie">
             </div>
             <div class="form-group">
-              <label class="form-label">Name</label>
-              <input type="text" class="form-control" value="Nelle Maxwell">
+              <label class="form-label">メールアドレス</label>
+              <input type="text" class="form-control" value="example@">
             </div>
             <div class="form-group">
-              <label class="form-label">E-mail</label>
-              <input type="text" class="form-control mb-1" value="nmaxwell@mail.com">
-              <div class="alert alert-warning mt-3">
-                Your email is not confirmed. Please check your inbox.<br>
-                <a href="javascript:void(0)">Resend confirmation</a>
-              </div>
+                    <label>年代</label>
+                    <p>
+                      <select name="participants_age_group">
+                      <option value="">選択してください</option>
+                      <option value="20代">20代</option>
+                      <option value="30代">30代</option>
+                      <option value="40代">40代</option>
+                      <option value="50代">50代</option>
+                      <option value="60代">60代</option>
+                      </select>
+                    </p>
             </div>
             <div class="form-group">
-              <label class="form-label">Company</label>
-              <input type="text" class="form-control" value="Company Ltd.">
+              <label class="form-label">目標</label>
+              <input type="text" class="form-control" value="夏までに−５キロ">
+            </div>
+            <div class="form-group">
+              <label class="form-label">自己紹介</label><br>
+              <textarea cols="93" rows="5" ></textarea>
             </div>
           </div>
 
@@ -66,17 +73,17 @@
           <div class="card-body pb-2">
 
             <div class="form-group">
-              <label class="form-label">Current password</label>
+              <label class="form-label">現在のパスワード</label>
               <input type="password" class="form-control">
             </div>
 
             <div class="form-group">
-              <label class="form-label">New password</label>
+              <label class="form-label">新しいパスワード</label>
               <input type="password" class="form-control">
             </div>
 
             <div class="form-group">
-              <label class="form-label">Repeat new password</label>
+              <label class="form-label">新しいパスワード（確認用）</label>
               <input type="password" class="form-control">
             </div>
 
@@ -250,8 +257,8 @@
 </div>
 
 <div class="text-right mt-3">
-  <button type="button" class="btn btn-primary">Save changes</button>&nbsp;
-  <button type="button" class="btn btn-default">Cancel</button>
+  <button type="button" class="btn btn-primary">変更を保存</button>&nbsp;
+  <button type="button" class="btn btn-default">キャンセル</button>
 </div>
 
 </div>

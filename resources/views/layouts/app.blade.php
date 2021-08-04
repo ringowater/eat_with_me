@@ -34,7 +34,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                               <a class="nav-link" href="{{ route('home') }}">{{ __   ('募集を見る') }}</a>
+                               <a class="nav-link" href="{{ route('posts.index') }}">{{ __   ('募集を見る') }}</a>
                             </li>
                             <li class="nav-item">
                                <a class="nav-link" href="{{ route('posts.create') }}">{{ __   ('募集する') }}</a>
@@ -62,11 +62,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('users.index') }}">
+                                <a class="dropdown-item" href="{{ route('users.edit', Auth::id() ) }}">
                                         {{ __('マイページ') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('posts.index') }}">
-                                        {{ __('投稿・申請履歴') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -94,7 +91,7 @@
 <footer class="text-center text-lg-start bg-light text-muted">
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-   <a href="##">個人情報保護方針</a><p>利用規約</p> <p>お問い合わせ</p><p>退会処理</p>
+   <a href="##">個人情報保護方針　　　　</a><a href="##">利用規約　　　　</a> <a href="##">お問い合わせ　　　　</a><a href="##">退会処理</a>
    <br>
     © 2021 Copyright:
     <a class="text-reset fw-bold" href="https://mdbootstrap.com/">eatwithme</a>
