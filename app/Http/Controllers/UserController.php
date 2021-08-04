@@ -53,11 +53,9 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        $post = Post::find($id);
+    {       
         $user = User::find($id);
-        $user = User::find($post->user_id);
-
+        $user->load('posts', 'comments');
         return view('users.show', compact('user'));
     }
 
@@ -69,7 +67,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $user->load('posts', 'comments');
+        return view('users.edit', compact('user'));
     }
 
     /**

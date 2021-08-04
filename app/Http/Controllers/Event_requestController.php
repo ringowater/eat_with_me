@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event_request;
+use Auth;
+use App\Http\Requests\Event_requestRequest;
+use App\Post;
 
 class Event_requestController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +31,7 @@ class Event_requestController extends Controller
      */
     public function create()
     {
-        return view('event_requests.create');
+        //
     }
 
     /**
@@ -32,9 +40,19 @@ class Event_requestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Event_requestRequest $request)
     {
-        //
+        $post = Post::findOrfail($request->post_id);
+        
+        $event_request = new Event_request;
+
+        $event_request -> user_id = Auth::id();
+        
+        $event_request -> post_id = $request->post_id;
+        
+
+        $event_request -> save();
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -45,7 +63,7 @@ class Event_requestController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('event_requests.show', compact('event_request'));
     }
 
     /**

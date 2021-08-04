@@ -26,7 +26,10 @@
                        </form>
                     </div>
                      @else
-                     <a href="{{ route('event_requests.create') }}" class="btn btn-primary">参加申請</a>
+                     <form action="{{ route('event_requests.store') }}" method="POST">
+                     {{csrf_field()}}
+                     <button type="submit" class="btn btn-primary">参加申請</button>
+                     </form>
                      @endif
                  </div>
               </div>
