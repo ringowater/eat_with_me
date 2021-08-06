@@ -45,4 +45,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Comment');
     }
+
+    public function event_requests()
+    {
+        return $this->hasMany('App\Event_request');
+    }
 }

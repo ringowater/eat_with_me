@@ -18,6 +18,8 @@
         
       </div>
     </div>
+
+<!-- ＜写真アップロード＞ -->
     <div class="col-md-9">
       <div class="tab-content">
         <div class="tab-pane fade active show" id="account-general">
@@ -36,27 +38,19 @@
           </div>
           <hr class="border-light m-0">
 
+<!-- ＜プロフィール編集＞ -->
           <div class="card-body">
             <div class="form-group">
               <label class="form-label">ニックネーム</label>
-              <input type="text" class="form-control mb-1" value="$post->user->name">
+              <input type="text" class="form-control mb-1" value="{{$user->name}}">
             </div>
             <div class="form-group">
               <label class="form-label">メールアドレス</label>
-              <input type="text" class="form-control" value="example@">
+              <input type="text" class="form-control" value="{{$user->email}}">
             </div>
             <div class="form-group">
-                    <label>年代</label>
-                    <p>
-                      <select name="participants_age_group">
-                      <option value="">選択してください</option>
-                      <option value="20代">20代</option>
-                      <option value="30代">30代</option>
-                      <option value="40代">40代</option>
-                      <option value="50代">50代</option>
-                      <option value="60代">60代</option>
-                      </select>
-                    </p>
+               <label class="form-label">年齢</label>
+               <input type="text" class="form-control mb-1" value="{{$user->name}}">
             </div>
             <div class="form-group">
               <label class="form-label">目標</label>
@@ -69,6 +63,8 @@
           </div>
 
         </div>
+
+<!-- ＜パスワード変更＞ -->
         <div class="tab-pane fade" id="account-change-password">
           <div class="card-body pb-2">
 
@@ -89,6 +85,8 @@
 
           </div>
         </div>
+
+<!-- ＜あなたの投稿 -->
         <div class="tab-pane fade" id="account-info">
           <div class="card-body pb-2">
             <div class="row">
@@ -111,7 +109,9 @@
          </div>
           </div>
           <hr class="border-light m-0">
-  
+
+
+<!-- ＜参加申請中の投稿＞  -->
         </div>
         <div class="tab-pane fade" id="account-social-links">
           <div class="card-body pb-2">
@@ -139,6 +139,8 @@
 
           </div>
         </div>
+
+<!-- ＜マッチングした投稿＞  -->
         <div class="tab-pane fade" id="account-connections">
           <div class="card-body">
             <button type="button" class="btn btn-twitter">Connect to <strong>Twitter</strong></button>
