@@ -62,8 +62,10 @@
                       </div>
                     </div>
                   </div>
-                </div><div class="col-md-4 order-md-1 col-lg-3 sidebar-filter">
-                  <h3 class="mt-0 mb-5">Showing <span class="text-primary">12</span> Products</h3>
+                </div>
+                
+                
+                <div class="col-md-4 order-md-1 col-lg-3 sidebar-filter fixed">
                   <h6 class="text-uppercase font-weight-bold mb-3">カテゴリー</h6>
                   <div class="mt-2 mb-2 pl-2">
                     <div class="custom-control custom-checkbox">

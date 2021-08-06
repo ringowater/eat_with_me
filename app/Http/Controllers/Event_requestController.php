@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event_request;
-use Auth;
 use App\Http\Requests\Event_requestRequest;
 use App\Post;
+use Auth;
 
 class Event_requestController extends Controller
 {
@@ -42,17 +42,16 @@ class Event_requestController extends Controller
      */
     public function store(Event_requestRequest $request)
     {
-        $post = Post::findOrfail($request->post_id);
-        
+        $post = Post::find($request->post_id);
+
         $event_request = new Event_request;
 
-        $event_request -> user_id = Auth::id();
-        
-        $event_request -> post_id = $request->post_id;
-        
+        $event_request -> user_id = auth()->user()->id;
+        $event_request -> post_id = $request -> post_id;
+        $event_request -> is_approved = $request -> is_approved;
 
         $event_request -> save();
-        return redirect()->route('posts.index');
+        return view('event_requests.show', compact('event_request'));
     }
 
     /**

@@ -18,6 +18,11 @@ class Post extends Model
         return $this->belongsTo('App\User');
     }
     
+    public function event_requests()
+    {
+        return $this->hasMany('App\Event_request');
+    }
+    
 }
 
 
