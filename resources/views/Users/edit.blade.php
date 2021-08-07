@@ -39,27 +39,31 @@
           <hr class="border-light m-0">
 
 <!-- ＜プロフィール編集＞ -->
+        <form action="{{ route('users.update', $user->id) }}" method="POST">
+          {{csrf_field()}}
+          {{method_field('PATCH')}}
           <div class="card-body">
             <div class="form-group">
               <label class="form-label">ニックネーム</label>
-              <input type="text" class="form-control mb-1" value="{{$user->name}}">
+              <input type="text" class="form-control mb-1" value="{{$user->name}}" name="name">
             </div>
             <div class="form-group">
               <label class="form-label">メールアドレス</label>
-              <input type="text" class="form-control" value="{{$user->email}}">
+              <input type="text" class="form-control" value="{{$user->email}}" name="email">
             </div>
             <div class="form-group">
                <label class="form-label">年齢</label>
-               <input type="text" class="form-control mb-1" value="{{$user->name}}">
+               <input type="text" class="form-control mb-1" value="{{$user->age}}" name="age">
             </div>
             <div class="form-group">
               <label class="form-label">目標</label>
-              <input type="text" class="form-control" value="夏までに−５キロ">
+              <input type="text" class="form-control" value="{{$user->goal}}" name="goal">
             </div>
             <div class="form-group">
               <label class="form-label">自己紹介</label><br>
-              <textarea cols="93" rows="5" ></textarea>
+              <textarea cols="93" rows="5" name="self_introduction">{{$user->self_introduction}}</textarea>
             </div>
+            <button type="submit" class="btn btn primary">更新する</button>
           </div>
 
         </div>
@@ -243,9 +247,9 @@
 </div>
 
 <div class="text-right mt-3">
-  <button type="button" class="btn btn-primary">変更を保存</button>&nbsp;
-  <button type="button" class="btn btn-default">キャンセル</button>
+  <button type="submit" class="btn btn-primary">更新する</button>&nbsp;
+  <a href="{{ route('posts.index')}}" class="btn btn-primary">キャンセル</a> 
 </div>
-
 </div>
+</form>
 @endsection

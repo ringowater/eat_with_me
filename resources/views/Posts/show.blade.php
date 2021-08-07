@@ -28,6 +28,8 @@
                      @else
                      <form action="{{ route('event_requests.store') }}" method="POST">
                      {{csrf_field()}}
+                     <input type="hidden" value="{{$post->id}}" name="post_id">
+                     <input type="hidden" value="false" name="is_approved">
                      <button type="submit" class="btn btn-primary">参加申請</button>
                      </form>
                      @endif

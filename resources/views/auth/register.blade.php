@@ -61,6 +61,33 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="age" class="col-md-4 col-form-label text-md-right">年齢</label>
+
+                            <div class="col-md-6">
+                            <input id="age" type="number" min="1" class="form-control{{ $errors->has('age') ? ' is-invalid' : '' }}" name="age" value="{{ old('age') }}" required>
+
+                            @if ($errors->has('age'))
+                            <span class="invalid-feedback">
+                                <strong>{{ $errors->first('age') }}</strong>
+                            </span>
+                            @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="age" class="col-md-4 col-form-label text-md-right">目標</label>
+
+                            <div class="col-md-6">
+                            <input id="goal" type=""  class="form-control{{ $errors->has('goal') ? ' is-invalid' : '' }}" name="goal" value="{{ old('goal') }}" required>
+
+                            @if ($errors->has('age'))
+                            <span class="invalid-feedback">
+                                <strong>{{ $errors->first('age') }}</strong>
+                            </span>
+                            @endif
+                            </div>
+                        </div>
+                        
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                              <button type="submit" class="btn btn-primary">
