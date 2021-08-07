@@ -9,7 +9,14 @@
           <div class="media-body ml-5">
             <h4 class="font-weight-bold mb-4">{{$user->name}}</h4>
             <div class="text-muted mb-4">
-              Lorem ipsum dolor sit amet, nibh suavitate qualisque ut nam. Ad harum primis electram duo, porro principes ei has.
+              目標：{{$user->goal}}
+            </div>
+            <div class="text-muted mb-4">
+              年齢：{{$user->age}}
+            </div>
+            <div class="text-muted mb-4">
+              自己紹介<br>
+              {{$user->self_introduction}}
             </div>
             
           </div>

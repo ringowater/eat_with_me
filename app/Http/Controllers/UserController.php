@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Post;
 use App\User;
+use App\Http\Requests\UserRequest;
 
 
 
@@ -41,9 +42,17 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $user = new User;
+
+        $user -> name = $request -> name;
+        $user -> email = $request -> email;
+        $user -> age = $request -> age;
+        $user -> goal = $request -> goal;
+
+        $user -> save();
+        return redirect()->route('users.edit');
     }
 
     /**
@@ -79,9 +88,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(UserRequest $request, $id)
     {
-       //
+       $user = User::find($id);
+
+       $user->name = $request->name;
+       $user->email = $request->email;
+       $user->age = $request->age;
+       $user->goal = $request->goal;
+       $user->self_introduction = $request->self_introduction;
+
+       $user->save();
+       return view('users.edit', compact('user'));
     }
 
     /**
