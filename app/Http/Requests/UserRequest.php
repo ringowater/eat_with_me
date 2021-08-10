@@ -24,7 +24,15 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'image' => 'mimes:jpeg,jpg,png,gif|max:10240',
+        ];
+    }
+
+    public function message()
+    {
+        return [
+        'image.mimes'    => 'ファイルタイプをjpeg,jpg,png,gifに設定してください。',
+        'image.max'      => 'ファイルサイズを10MB以下に設定してください。',
         ];
     }
 }

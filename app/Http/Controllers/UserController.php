@@ -51,6 +51,19 @@ class UserController extends Controller
         $user -> age = $request -> age;
         $user -> goal = $request -> goal;
 
+        if ($image = $request->file('image')) {
+            $image_path = $image->getRealPath();
+            Cloudder::upload($image_path, null);
+
+            $publicId = Cloudder::getPublicId();
+            $logoUrl = Cloudder::secureShow($publicId, [
+                'width'     => 250,
+                'height'    => 250
+            ]);
+            $post->image_path = $logoUrl;
+            $post->public_id  = $publicId;
+        }
+
         $user -> save();
         return redirect()->route('users.edit');
     }

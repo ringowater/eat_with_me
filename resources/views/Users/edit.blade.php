@@ -23,25 +23,23 @@
     <div class="col-md-9">
       <div class="tab-content">
         <div class="tab-pane fade active show" id="account-general">
-
-          <div class="card-body media align-items-center">
-            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-80">
-            <div class="media-body ml-4">
+         <div class="form">
+          <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+          {{csrf_field()}}
+          {{method_field('PATCH')}}        
+          <div class="card-body text-center">
+           <img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="profile-image" style="max-width:250px">
+           <p class="mt-2">プロフィール画像</p>
+           <div class="media-body ml-4 mt-2">
               <label class="btn btn-outline-primary">
-                Upload new photo
-                <input type="file" class="account-settings-fileinput">
-              </label> &nbsp;
-              <button type="button" class="btn btn-default md-btn-flat">Reset</button>
-
-              <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
+                写真をアップロードする
+              <br>
+              <input type="file" class="account-settings-fileinput">
+              </label> 
             </div>
           </div>
           <hr class="border-light m-0">
-
 <!-- ＜プロフィール編集＞ -->
-        <form action="{{ route('users.update', $user->id) }}" method="POST">
-          {{csrf_field()}}
-          {{method_field('PATCH')}}
           <div class="card-body">
             <div class="form-group">
               <label class="form-label">ニックネーム</label>
@@ -63,9 +61,9 @@
               <label class="form-label">自己紹介</label><br>
               <textarea cols="93" rows="5" name="self_introduction">{{$user->self_introduction}}</textarea>
             </div>
-            <button type="submit" class="btn btn primary">更新する</button>
+            <button type="submit" class="btn btn-primary">更新する</button>
           </div>
-
+         </div>
         </div>
 
 <!-- ＜パスワード変更＞ -->
@@ -92,31 +90,28 @@
 
 <!-- ＜あなたの投稿 -->
         <div class="tab-pane fade" id="account-info">
-          <div class="card-body pb-2">
-            <div class="row">
-              <div class="row mx-0">
+          <div class="row justify-content-center">
+            <div class="col-md-8 mt-5 mb-4">
               @foreach ($user->posts as $post)
-              <div class="card text-center col-md-4">
-              <div class="card-body">
-              <h5 class="card-title">{{ $post->title }}</h5>
-              <p class="card-text">開催日時：{{ $post->event_date }}</p>
-              <p class="card-text">カテゴリー：{{ $post->category_type }}</p>
-              <p class="card-text">募集対象・人数：{{ $post->participants_age_group }}   {{ $post->participants_number }}人</p>
-              <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">詳細へ</a> 
+              <div class="card ">
+               <div class="card-body">
+                <h5 class="card-title mt-2 mb-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
+                    <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z"/>
+                    <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+                    </svg>　　　<a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}
+                    </a>
+                </h5>   
+               </div>
+               <p class="mb-2 ml-4 text-muted">投稿日時：{{$post->created_at}}</p>
               </div>
-             <div class="card-footer text-muted">
-              <p class="card-text"><a href="{{ route('users.index') }}">投稿者：{{ $post->user->name }}</a></p>  
-             </div>
-            </div>
-            @endforeach
+              <br>
+             @endforeach
            </div>
-         </div>
           </div>
-          <hr class="border-light m-0">
-
-
-<!-- ＜参加申請中の投稿＞  -->
         </div>
+
+ <!-- ＜参加申請中の投稿＞  -->
         <div class="tab-pane fade" id="account-social-links">
           <div class="card-body pb-2">
 
@@ -244,11 +239,6 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="text-right mt-3">
-  <button type="submit" class="btn btn-primary">更新する</button>&nbsp;
-  <a href="{{ route('posts.index')}}" class="btn btn-primary">キャンセル</a> 
 </div>
 </div>
 </form>

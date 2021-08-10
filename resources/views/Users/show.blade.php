@@ -1,52 +1,61 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container bootstrap-snippet header-container">
-    <div class="bg-white">
-      <div class="container py-5">
-        <div class="media col-md-10 col-lg-8 col-xl-7 p-0 my-4 mx-auto">
-          <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt class="d-block ui-w-70 rounded-circle">
-          <div class="media-body ml-5">
-            <h4 class="font-weight-bold mb-4">{{$user->name}}</h4>
-            <div class="text-muted mb-4">
-              目標：{{$user->goal}}
+<div class="container">
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+         <div class="card m-4">
+          <div class="card-body create-card-body">
+           <div class="container">
+            <div class="row">
+             <div class="col-md-6 md-5 text-center">  
+              <img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="Generic placeholder image" style="max-width:200px" >
+             </div>
+             <div class="col-md-6">
+              <h3 class="user-show-title pb-3 mb-0">{{$user->name}}</h3>
+              <p>年齢：　{{$user->age}}歳</p>
+              <p>目標：　{{$user->goal}}</p>
+              <p class="mb-0"></p>
+              <p>{{$user->self_introduction}}</p>
+             </div>
             </div>
-            <div class="text-muted mb-4">
-              年齢：{{$user->age}}
+            <br>
+            <br>
+            <div class="row">
+             <div class="col-md-12">
+              <hr class="mb-0 mt-0">
+              <h3 class="text-center user-show-title my-4">投稿</h3>
+             </div>
             </div>
-            <div class="text-muted mb-4">
-              自己紹介<br>
-              {{$user->self_introduction}}
+            <div class="row justify-content-center">
+             <div class="col-md-12">
+              @foreach ($user->posts as $post)
+              <div class="card ">
+               <div class="card-body">
+                <h5 class="card-title mt-2 mb-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
+                    <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z"/>
+                    <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+                    </svg>　　　<a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}
+                    </a>
+                </h5> 
+                
+               </div>
+               <p class="mb-2 ml-4 text-muted">投稿日時：{{$post->created_at}}</p>
+              </div>
+              <br>
+             @endforeach
             </div>
-            
-          </div>
-        </div>
-      </div>
-      <hr class="m-0">
-      <ul class="nav nav-tabs tabs-alt justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link py-4 active" href="#">Posts</a>
-        </li>
-      </ul>
-    </div>
-    <div class="row">
-        <div class="row mx-0">
-        @foreach ($user->posts as $post)
-        <div class="card text-center col-md-4">
-        <div class="card-body">
-            <h5 class="card-title">{{ $post->title }}</h5>
-            <p class="card-text">開催日時：{{ $post->event_date }}</p>
-            <p class="card-text">カテゴリー：{{ $post->category_type }}</p>
-            <p class="card-text">募集対象・人数：{{ $post->participants_age_group }}   {{ $post->participants_number }}人</p>
-            <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">詳細へ</a> 
-        </div>
-        <div class="card-footer text-muted">
-        <p class="card-text"><a href="{{ route('users.index') }}">投稿者：{{ $post->user->name }}</a></p>  
-        </div>
-        </div>
-        @endforeach
-        </div>
-    </div>
-</div>
+           </div>
 
+          </div>
+         </div>
+       </div>
+     </div>
+   </div>
+  </div>
+ </main>
+</div>
 @endsection
