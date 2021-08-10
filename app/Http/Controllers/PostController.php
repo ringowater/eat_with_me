@@ -20,8 +20,7 @@ class PostController extends Controller
         $this->middleware('auth');
     }
     public function index()
-    {
-        
+    {   
         $posts = Post::all();
         $posts->load('user');
         return view('posts.index', compact('posts'));
@@ -73,7 +72,7 @@ class PostController extends Controller
         return view('posts.show', compact('post'));
     }
 
-    /**
+    /*
      * Show the form for editing the specified resource.
      *
      * @param  int  $id

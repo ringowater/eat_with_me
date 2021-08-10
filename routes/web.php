@@ -27,6 +27,7 @@ Route::resource('users', 'UserController');
 
 Route::resource('event_requests', 'Event_requestController');
 
+Route::resource('contacts', 'ContactController');
 
 Route::prefix('notification')->middleware('auth')->group(function(){
 

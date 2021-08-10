@@ -4,68 +4,63 @@
 
 <div class="container pt-5">
               <div class="row">
-                <div class="col-md-8 order-md-2 col-lg-9">
+                <div class="col-md-12 order-md-2 col-lg-9">
                   <div class="container-fluid">
-                    <div class="row   mb-5">
-                      <div class="col-12">
-                        <div class="dropdown text-md- text-center float-md-right mb-3 mt-3 mt-md-0 mb-md-0">
-                          <label class="mr-2">Sort by:</label>
-                          <a class="btn btn-lg btn-light dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdown" x-placement="bottom-start" style="position: absolute; transform: translate3d(71px, 48px, 0px); top: 0px; left: 0px; will-change: transform;">
-                            <a class="dropdown-item" href="#"></a>
-                            <a class="dropdown-item" href="#"></a>
-                            <a class="dropdown-item" href="#"></a>
-                            <a class="dropdown-item" href="#"></a>
-                          </div>
-                        </div>
-                        <div class="btn-group float-md-right ml-3">
-                          <button type="button" class="btn btn-lg btn-light"> <span class="fa fa-arrow-left"></span> </button>
-                          <button type="button" class="btn btn-lg btn-light"> <span class="fa fa-arrow-right"></span> </button>
-                        </div>
-        
-                      </div>
-                    </div>
+                    
                     <div class="row">
                     <div class="row mx-0">
                     @foreach ($posts as $post)
-                    <div class="card text-center col-md-4">
+                    <div class="card col-md-4 order-md-1 mb-3" data-mdb-ripple-color="light">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $post->title }}</h5>
-                        <p class="card-text">開催日時：{{ $post->event_date }}</p>
-                        <p class="card-text">カテゴリー：{{ $post->category_type }}</p>
-                        <p class="card-text">募集対象・人数：{{ $post->participants_age_group }}   {{ $post->participants_number }}人</p>
-                        <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">詳細へ</a> 
+                        <h6 class="card-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
+                        <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z"/>
+                        <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+                        </svg>　{{ $post->title }}</h6>
+                        <hr class="my-2">
+                        <p class="card-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16">
+                        <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                        </svg>　{{ $post->event_date }}</p>
+                        <p class="card-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+                        <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                        <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+                        </svg>　{{ $post->category_type }}</p>
+                        <p class="card-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                        <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                        <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+                        <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                        </svg>　{{ $post->participants_age_group }}　{{ $post->participants_number }}人</p>
+                        <div class=text-center><a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">詳細へ</a> </div>
                     </div>
                       
                     <div class="card-footer text-muted">            
-                     @if($post->user_id == Auth::id())
-                     <p class="card-text"> 
-                     <a href="{{ route('users.edit', $post->user_id) }}">投稿者：{{ $post->user->name }}</a></p>
-                     @else  
-                     <p class="card-text"> 
-                     <a href="{{ route('users.show', $post->user_id) }}">投稿者：{{ $post->user->name }}</a></p> 
-                     @endif
-                    </div>
                     
+                      <div class="media">
+                      <img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="Generic placeholder image" style="max-width:50px">
+                      <div class="media-body">
+                        @if($post->user_id == Auth::id())
+                        <h6 class="my-4 text-black d-block"><a href="{{ route('users.edit', $post->user_id) }}">{{ $post->user->name }}（{{$post->user->age}}歳）</a></h6>
+                        @else
+                        <h6 class="my-4 text-black d-block">
+                        <a href="{{ route('users.show', $post->user_id) }}">{{ $post->user->name }}（{{$post->user->age}}歳）</a></h6>
+                        @endif
+                     </div>
+                     </div>
+                    </div>
                     </div>
                     @endforeach
                     </div>
                     </div>
-                    <div class="row sorting mb-5 mt-5">
-                      <div class="col-12">
-                        <!-- <a class="btn btn-light"> -->
-                          <i class="fas fa-arrow-up mr-2"></i></a>
-                        <div class="btn-group float-md-right ml-3">
-                          <button type="button" class="btn btn-lg btn-light"> <span class="fa fa-arrow-left"></span> </button>
-                          <button type="button" class="btn btn-lg btn-light"> <span class="fa fa-arrow-right"></span> </button>
-                        </div>
-                      </div>
-                    </div>
+
                   </div>
                 </div>
                 
                 
-                <div class="col-md-4 order-md-1 col-lg-3 sidebar-filter fixed">
+                <div class="col-md-4 order-md-1 col-lg-3 sidebar-filter">
                   <h6 class="text-uppercase font-weight-bold mb-3">カテゴリー</h6>
                   <div class="mt-2 mb-2 pl-2">
                     <div class="custom-control custom-checkbox">
@@ -146,4 +141,6 @@
                 </div>
               </div>
             </div>
+
+            
 @endsection

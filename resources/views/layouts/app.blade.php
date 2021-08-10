@@ -39,6 +39,9 @@
                             <li class="nav-item">
                                <a class="nav-link" href="{{ route('posts.create') }}">{{ __   ('募集する') }}</a>
                             </li>
+                            <li class="nav-item">
+                               <a class="nav-link" href="{{ route('event_requests.index') }}">{{ __   ('通知') }}</a>
+                            </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -86,18 +89,13 @@
             @yield('content')
         </main>
     </div>
+  
+    <footer class="py-4 bg-white flex-shrink-0">
+      <div class="container text-center">
+         <p class="contact">Copyright©️ 2021 Rie Namba</p>
+         <a href="{{ route('contacts.create') }}" class="btn btn-outline-primary contact">
+         お問い合わせ</a>
+      </div>
+    </footer>
 </body>
-<!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted">
-  <!-- Copyright -->
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-   <a href="##">個人情報保護方針　　　　</a><a href="##">利用規約　　　　</a> <a href="##">お問い合わせ　　　　</a><a href="##">退会処理</a>
-   <br>
-    © 2021 Copyright:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">eatwithme</a>
-  </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
-
 </html>

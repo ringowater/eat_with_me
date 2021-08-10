@@ -6,9 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event_request extends Model
 {
+
+    protected $fillable = [
+        'is_approved'];
+
     public function post()
     {
-        return $this->belongTo('App\Post');
+        return $this->belongsTo('App\Post');
     }
 
     public function user()
