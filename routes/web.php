@@ -27,14 +27,9 @@ Route::resource('users', 'UserController');
 
 Route::resource('event_requests', 'Event_requestController');
 
+Route::patch('event_request/{event_request}', 'Event_requestController@approve')->name('event_requests.approve');
+
+Route::put('event_request/{event_request}', 'Event_requestController@decline')->name('event_requests.decline');
+
 Route::resource('contacts', 'ContactController');
 
-Route::prefix('notification')->middleware('auth')->group(function(){
-
-Route::get('/', [NotificationController::class, 'index'])->name('notification.index');
-    
-Route::get('/list', [NotificationController::class, 'list'])->name('notification.list');
-    
-Route::get('/{notification}', [NotificationController::class, 'show'])->name('notification.show');
-
-});

@@ -170,7 +170,7 @@ sup {
 }
 
 a {
-  color: #3490dc;
+  color: black;
   text-decoration: none;
   background-color: transparent;
 }
@@ -2677,14 +2677,14 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #3490dc;
-  border-color: #3490dc;
+  background-color: #FFA500;
+  border-color: #FFA500;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #227dc7;
-  border-color: #2176bd;
+  background-color: #FFA500;
+  border-color: #FFA500;
 }
 
 .btn-primary:focus,
@@ -3004,14 +3004,14 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
-  color: #3490dc;
-  border-color: #3490dc;
+  color: #FFA500;
+  border-color: #FFA500;
 }
 
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: #3490dc;
-  border-color: #3490dc;
+  background-color: #FFA500;
+  border-color: #FFA500;
 }
 
 .btn-outline-primary:focus,
@@ -5800,8 +5800,8 @@ a.badge-dark.focus {
 .list-group-item.active {
   z-index: 2;
   color: #fff;
-  background-color: #3490dc;
-  border-color: #3490dc;
+  background-color: #FFA500;
+  border-color: #FFA500;
 }
 
 .list-group-item + .list-group-item {
@@ -8664,6 +8664,7 @@ button.bg-dark:focus {
 .pt-4,
 .py-4 {
   padding-top: 1.5rem !important;
+  background-color: #EDECE3;
 }
 
 .pr-4,

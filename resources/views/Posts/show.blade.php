@@ -43,8 +43,6 @@
                      <form action="{{ route('event_requests.store') }}" method="POST">
                      {{csrf_field()}}
                      <input type="hidden" value="{{$post->id}}" name="post_id">
-                     <input type="hidden" value="false" name="is_approved">
-                     <input type="hidden" value="false" name="is_checked">
                      <button type="submit" class="btn btn-primary btn-lg">参加申請</button>
                      </form>
                      @endif
@@ -70,10 +68,10 @@
               {{csrf_field()}}
               <input type="hidden" name="post_id" value="{{ $post->id }}">
                 <div class="form-group">
-                  <div class="text-center py-4"><h5>質問してみましょう!</h5></div>
+                  <div class="text-center py-5"><h5>質問してみましょう!</h5></div>
                   <textarea class="form-control" placeholder="内容" rows="5" name="content"></textarea>
                 </div>
-                 <div class="text-center py-4"><button type="submit" class="btn btn-primary btn-block">質問する</button></div>
+                 <div class="text-center py-3"><button type="submit" class="btn btn-primary btn-block">質問する</button></div>
               </form>
                 
                 <div class="md-12">

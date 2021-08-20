@@ -17,7 +17,7 @@ class CreateEventRequestsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('post_id');
-            $table->string('is_approved');
+            $table->boolean('is_approved');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('post_id')->references('id')->on('posts');
             $table->timestamps();

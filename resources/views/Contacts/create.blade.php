@@ -6,7 +6,7 @@
    <div class="col-md-8">
     <div class="card my-5">
      <div class="card-title text-center mb-0">
-      <h3 class="mb-0 pt-4 register-title">お問い合わせ</h3>
+      <h3 class="mb-0 pt-5 register-title">お問い合わせ</h3>
      </div>
      <div class="card-body pb-4">
      <form action="{{ route('contacts.store') }}" method="POST">

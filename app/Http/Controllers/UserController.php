@@ -91,7 +91,23 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->load('posts', 'comments');
-        return view('users.edit', compact('user'));
+        $participation_posts = Post::with('event_requests')
+        ->where('user_id', '<>', $user->id)
+        ->whereHas('event_requests', function($q) use ($user) {
+            $q->where('event_requests.user_id', $user->id)
+              ->where('is_approved', 1);
+        })
+        ->get();
+
+        $application_posts = Post::with('event_requests')
+        ->where('user_id', '<>', $user->id)
+        ->whereHas('event_requests', function($q) use ($user) {
+            $q->where('event_requests.user_id', $user->id)
+              ->where('is_approved', 0);
+        })
+        ->get();
+        
+        return view('users.edit', compact('user', 'participation_posts', 'application_posts'));
     }
 
     /**

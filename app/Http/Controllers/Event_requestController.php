@@ -58,8 +58,8 @@ class Event_requestController extends Controller
 
         $event_request -> user_id = auth()->user()->id;
         $event_request -> post_id = $request -> post_id;
-        $event_request -> is_approved = $request -> is_approved;
-        $event_request -> is_checked = $request -> is_checked;
+        $event_request -> is_approved = false;
+        $event_request -> is_checked = false;
 
         $event_request -> save();
         return view('event_requests.show', compact('event_request'));
@@ -98,16 +98,16 @@ class Event_requestController extends Controller
      */
     public function update(Event_requestRequest $request, $id)
     {
-        $event_request = Event_request::find($id);
+        // $event_request = Event_request::find($id);
 
-        $event_request->user_id = auth()->user()->id;
-        $event_request->post_id = $request->post_id;
-        $event_request -> is_approved = $request->is_approved;
-        $event_request -> is_checked = $request->is_checked;
+        // $event_request->user_id = auth()->user()->id;
+        // $event_request->post_id = $request->post_id;
+        // $event_request -> is_approved = $request->is_approved;
+        // $event_request -> is_checked = true;
 
-        $event_request->save();
+        // $event_request->save();
 
-        return view('event_requests.show', compact('event_request'));
+        // return view('event_requests.show', compact('event_request'));
     }
 
     /**
@@ -123,5 +123,29 @@ class Event_requestController extends Controller
         $event_request->delete();
 
         return redirect()->route('event_requests.index');
+    }
+
+    public function approve(Event_requestRequest $request, $id)
+    {
+        $event_request = Event_request::find($id);
+
+        $event_request -> is_approved = $request->is_approved;
+        $event_request -> is_checked = true;
+
+        $event_request->save();
+
+        return view('event_requests.show', compact('event_request'));
+    }
+
+    public function decline(Event_requestRequest $request, $id)
+    {
+        $event_request = Event_request::find($id);
+
+        $event_request -> is_approved = $request->is_approved;
+        $event_request -> is_checked = true;
+
+        $event_request->save();
+
+        return view('event_requests.show', compact('event_request'));
     }
 }

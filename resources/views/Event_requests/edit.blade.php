@@ -11,21 +11,22 @@
                 <div class="sub-message text-center">
                     <p>{{$event_request->user->name}}さんの参加申請を許可しますか？</p>
                 </div>
-                <form action="{{ route('event_requests.update', $event_request->id) }}" method="POST">
+                <form action="{{ route('event_requests.approve', $event_request->id) }}" method="POST">
                 {{csrf_field()}}
                 {{method_field('PATCH')}}
                 <input type="hidden" value="{{$event_request->post_id}}" name="post_id">
                 <input type="hidden" value="true" name="is_approved">
-                <input type="hidden" value="true" name="is_checked">
                 <div class="row justify-content-around">              
-                <button type="submit" class="btn btn-primary btn-lg mr-4">許可する</button>
+                <button type="submit" class="btn btn-primary btn-block">許可する</button>
                 </div>
                 </form>
 
-                <form action="{{ route('event_requests.destroy', $event_request->id) }}" method='post'>
+                <form action="{{ route('event_requests.decline', $event_request->id) }}" class="text-center" method='POST'>
                 {{ csrf_field() }}
-                {{ method_field('DELETE') }}
-                <input type='submit' value='キャンセルする' class="btn btn-danger btn-lg" onclick='return confirm("{{$event_request->user->name}}さんからの申請をキャンセルしますか？")'>
+                {{ method_field('PUT') }}
+                <input type="hidden" value="{{$event_request->post_id}}" name="post_id">
+                <input type="hidden" value="false" name="is_approved">
+                <button type="submit" class="btn btn-secondary btn-sm mt-2 mb-4">キャンセルする</button>
                 </form>     
              </div>
           </div>
